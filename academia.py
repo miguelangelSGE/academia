@@ -8,7 +8,7 @@ class cursos(models.Model):
     @api.depends('alumnos')
     def calculacoste(self):
         for rec in self:
-            self.coste = float(self.alumnos * 100)
+            rec.coste = float(self.alumnos * 100)
         #return float(self.alumnos * 100)
     
     nombre = fields.Char(string = "Titulo del curso",required=True)
