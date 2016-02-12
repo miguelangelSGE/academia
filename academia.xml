@@ -1,0 +1,48 @@
+<openerp>
+    <data> <!-- accion -->
+		<record model="ir.actions.act_window" id="academia_list_action">
+			<field name="name"> Academia </field>
+			<field name="res_model">academia.cursos</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+<!-- vista formulario -->
+	<record model="ir.ui.view" id="academia_form_view">
+		<field name="name">academia.form</field>
+		<field name="model">academia.cursos</field>
+		<field name="arch" type="xml">
+			<form string="Formulario curso">
+				<sheet>
+					<group>
+						<field name="nombre" />
+						<field name="descripcion" />
+						<field name="fechaInicio" />
+						<field name="turno" />
+						<field name="alumnos" />
+						<field name="coste" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+<!-- vista árbol (lista) -->
+	<record model="ir.ui.view" id="academia_tree_view">
+		<field name="name">academia.tree</field>
+		<field name="model">academia.cursos</field>
+		<field name="arch" type="xml">
+			<tree string="Lista curso">
+				<field name="nombre" />
+				<field name="descripcion" />
+				<field name="fechaInicio" />
+				<field name="turno" />
+				<field name="coste" />
+			</tree>
+		</field>
+	</record>
+<!-- menús -->
+	<menuitem id="top_academia_menu" name="Academia" />
+	<menuitem id="left_academia_menu" name="Academia"
+		parent="top_academia_menu" />
+	<menuitem id="academia_menu" name="Cursos" parent="left_academia_menu"
+		action="academia_list_action" />
+    </data>
+</openerp>
